@@ -1,0 +1,41 @@
+options:
+  volume-backend-name:
+    type: string
+    default: powerstore
+    description: Volume backend name for the backend. 
+  protocol:
+    type: string
+    default: FC
+    description: |
+      Storage protocol to use with the array. Can be either FC or iSCSI.
+  san-ip:
+    type: string
+    default: !!null ""
+    description: UniSphere IP used to access the array.
+  san-login:
+    type: string
+    default: admin
+    description: Username used to log on UniSphere.
+  san-password:
+    type: string
+    default: password
+    description: Password used to authenticate in UniSphere.
+  powerstore-ports:
+    type: string
+    description: |
+      Allowed ports. Comma separated list of PowerStore iSCSI IPs or FC
+      WWNs to be used. If the option is not set all ports are allowed.
+  powerstore-nvme:
+    type: boolean
+    default: False
+    description: Enables NVMe-OF PowerStore connection.
+  use-multipath:
+    type: boolean
+    default: True
+    description: |
+      Whether to use a multipath connection for iSCSI or FC in Cinder
+      volume service. Enabling multipath for VMs is managed by the
+      "use-multipath" option in the nova-compute charm.    
+  use-multipath-for-image-xfer:
+    type: boolean
+    description: Use multipath for image xfer.

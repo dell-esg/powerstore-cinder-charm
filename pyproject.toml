@@ -1,0 +1,63 @@
+# Testing tools configuration
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+log_cli_level = "INFO"
+
+# Formatting tools configuration
+[tool.black]
+line-length = 99
+target-version = ["py38"]
+
+# Linting tools configuration
+[tool.ruff]
+line-length = 99
+extend-exclude = ["__pycache__", "*.egg_info"]
+
+[tool.ruff.lint]
+ignore = ["D107"]
+extend-ignore = [
+    "D203",
+    "D204",
+    "D213",
+    "D215",
+    "D400",
+    "D404",
+    "D406",
+    "D407",
+    "D408",
+    "D409",
+    "D413",
+]
+select = ["E", "W", "F", "C", "N", "D", "I001"]
+per-file-ignores = {"tests/*" = ["D100","D101","D102","D103","D104"]}
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.codespell]
+skip = "build,lib,venv,icon.svg,.tox,.git,.mypy_cache,.ruff_cache,.coverage"
+
+[tool.pyright]
+include = ["src/**.py"]
+
+[dependency-groups]
+unit = [
+    "coverage[toml]>=7.9.2",
+    "ops[testing]>=3.0.0",
+    "pytest>=8.4.1",
+    "pytest-mock>=3.14.1",
+]
+integration = [
+    "boto3>=1.40.2",
+    "jubilant>=1.3.0",
+    "kubernetes>=33.1.0",
+    "pytest>=8.4.1",
+    "pytest-jubilant>=0.8",
+    "tenacity>=9.1.2",
+]

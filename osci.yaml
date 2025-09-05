@@ -1,0 +1,10 @@
+- project:
+    templates:
+      - charm-unit-jobs-py310
+      # Does not have working functional tests. Virtual appliance doesn't exist yet.
+      # - charm-functional-jobs
+    vars:
+      needs_charm_build: true
+      charm_build_name: cinder-dell-powerstore
+      build_type: charmcraft
+      charmcraft_channel: 2.x/stable

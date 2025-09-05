@@ -1,0 +1,24 @@
+name: cinder-powerstore
+summary: Dell PowerStore integration for OpenStack Block Storage
+maintainer: Dell OpenStack Charmers <openstack@dell.com>
+description: |
+  Cinder is the block storage service for the Openstack project.
+  This charm provides a Dell PowerStore backend for Cinder.
+docs:  https://github.com/dell-esg/powerstore-cinder-charm/blob/main/README.md
+source: https://github.com/dell-esg/powerstore-cinder-charm
+tags:
+  - openstack
+  - storage
+  - file-servers
+  - misc
+series:
+  - jammy
+subordinate: true
+provides:
+  storage-backend:
+    interface: cinder-backend
+    scope: container
+requires:
+  juju-info:
+    interface: juju-info
+    scope: container

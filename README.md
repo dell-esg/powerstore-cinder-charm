@@ -1,4 +1,4 @@
-Dell PowerMax Storage Backend for Cinder
+Dell PowerStore Storage Backend for Cinder
 -----------------------------------------
 
 ## Overview

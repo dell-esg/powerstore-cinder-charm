@@ -51,11 +51,11 @@ class CinderPowerStoreCharm(CinderStoragePluginCharm):
             ('san_ip', cget('san-ip')),
             ('san_login', cget('san-login')),
             ('san_password', cget('san-password')),
-            ("storage_protocol", self.cget("protocol")),
-            ("powerstore_nvme", self.cget('powerstore-nvme')),
+            ("storage_protocol", cget("protocol")),
+            ("powerstore_nvme", cget('powerstore-nvme')),
         ]
         
-        if self.cget("use-multipath"):
+        if cget("use-multipath"):
             raw_options.extend(
                 [
                     ("use_multipath_for_image_xfer", True),
@@ -63,7 +63,7 @@ class CinderPowerStoreCharm(CinderStoragePluginCharm):
                 ]
             )
         
-        if self.cget("powerstore-ports"):
+        if cget("powerstore-ports"):
             raw_options.extend(
                 [("powerstore_ports", self._csv_to_array(cget("powerstore-ports")))]
             )

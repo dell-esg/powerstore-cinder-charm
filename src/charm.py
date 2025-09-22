@@ -22,7 +22,11 @@ from ops_openstack.plugins.classes import CinderStoragePluginCharm
 
 logger = logging.getLogger(__name__)
 
-VOLUME_DRIVER = 'cinder.volume.drivers.dell_emc.powerstore.driver.PowerStoreDriver'
+VOLUME_DRIVER = (
+    'cinder.volume.drivers.dell_emc.powerstore.driver.'
+    'PowerStoreDriver'
+)
+
 
 class CinderPowerStoreCharm(CinderStoragePluginCharm):
 
@@ -54,7 +58,7 @@ class CinderPowerStoreCharm(CinderStoragePluginCharm):
             ("storage_protocol", cget("protocol")),
             ("powerstore_nvme", cget('powerstore-nvme')),
         ]
-        
+
         if cget("use-multipath"):
             raw_options.extend(
                 [
@@ -62,12 +66,13 @@ class CinderPowerStoreCharm(CinderStoragePluginCharm):
                     ("enforce_multipath_for_image_xfer", True),
                 ]
             )
-        
+
         if cget("powerstore-ports"):
             raw_options.extend(
-                [("powerstore_ports", self._csv_to_array(cget("powerstore-ports")))]
+                [("powerstore_ports",
+                    self._csv_to_array(cget("powerstore-ports")))]
             )
-            
+
         options = [(x, y) for x, y in raw_options if y]
         return options
 

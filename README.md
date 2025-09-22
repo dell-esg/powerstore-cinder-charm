@@ -61,4 +61,4 @@ The OpenStack Charms project maintains two documentation guides:
 
 # Bugs
 
-Please report bugs on [Launchpad](https://bugs.launchpad.net/charm-cinder-powermax/+filebug).
+Please report bugs on [Launchpad](https://bugs.launchpad.net/charm-cinder-powerstore/+filebug).

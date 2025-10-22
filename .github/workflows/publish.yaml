@@ -18,7 +18,7 @@ jobs:
           charmcraft-channel: "3.x/stable"
           credentials: "${{ secrets.CHARMHUB_TOKEN }}"
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          channel: "latest/edge"
+          channel: "latest/stable"
 
       - name: Archive charmcraft logs
         if: failure()
